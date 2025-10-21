@@ -41,9 +41,9 @@ def run_resource(resource_name: str, bq_dest: dlt.destinations.bigquery, start_d
     selected_source = base_source.with_resources(resource_name)
 
     pipeline = dlt.pipeline(
-        pipeline_name=f"github_inc_demo_{resource_name}",
+        pipeline_name=f"github_bckfill_demo_{resource_name}",
         destination=bq_dest,
-        dataset_name="demo_inc_github",
+        dataset_name="demo_backfill_github",
         progress="log"
     )
 
@@ -62,7 +62,6 @@ def main(start_date: str | None = None, end_date: str | None = None):
     a = run_resource("repos", bq_dest)
     b = run_resource("forks", bq_dest, start_date=start_date, end_date=end_date)
     
-
     return a, b
 
 if __name__ == "__main__":
