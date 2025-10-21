@@ -62,7 +62,7 @@ def main(incremental_date: str | None = None):
     c = run_resource("releases", bq_dest)
     d = run_resource("issues", bq_dest, incremental_date=incremental_date)
 
-    return a, b, c
+    return a, b, c, d
 
 if __name__ == "__main__":
     main()
