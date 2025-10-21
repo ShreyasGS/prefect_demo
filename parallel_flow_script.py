@@ -3,6 +3,7 @@ import dlt
 from prefect_github import GitHubCredentials
 from prefect_gcp import GcpCredentials
 import os
+from prefect.task_runners import ThreadPoolTaskRunner
 
 def set_github_pat_env():
 
